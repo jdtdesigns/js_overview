@@ -1,23 +1,29 @@
 
-var names = ['John', 'Ann', 'Bob', 'Frank', 'Jane', 'Jimmy', 'Billy', 'Julie', 'Will'];
-var users = ['Bob', 99, 'Ann', 35, 'Billy', 45];
+// console.log(num);
 
+// var num = 10;
 
-// Print a count from 1 to 10
-// console.log(names[names.length])
+// console.log(num);
 
-// for (var count = 1; count <= 10; count *= 5) {
-//   console.log(count);
+// if (true) {
+//   var studentName = 'Christian';
 // }
 
-for (var index = 0; index < users.length; index++) {
-  console.log(users[index]);
-}
+// console.log(studentName);
 
-var count = 1;
 
-while (count <= 10) {
-  console.log(count);
+// let num = 10;
 
-  count++;
-}
+// num++;
+
+// console.log(num);
+
+// if (true) {
+//   let nestedVariable = 'nested';
+// }
+
+// console.log(nestedVariable);
+
+const num = 10;
+const people = ['John', 'Bob', 'Ann'];
+let someVal;
