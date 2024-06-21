@@ -1,41 +1,55 @@
 
+/* 
+Create a function that takes 3 arguments 
+- The first and second argument will be a number
+- The third argument will be an mathmatical operator (+, -, *, /)
 
-// function myFirstFunc() {
-//   console.log('function has been called');
-// }
-
-// myFirstFunc();
-
-// function add(num1, num2) {
-//   console.log(num1 + num2);
-// }
-
-// add(5, 10);
-
-// add(30, 27);
-
-// function printValues(num, name, boolean, another) {
-//   console.log(another);
-// }
-
-// printValues(10, 'Allen', false, 'another');
-
-// const someStr = 'some string';
-
-// console.log(someStr[6]);
-
-function printNames(names) {
-  for (const name of names) {
-    console.log(name);
+Example: If the operator is a '+' then you will add the two numbers together and console log the sum
+*/
+function calculate(num1, num2, operator) {
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    case '/':
+      return num1 / num2;
+    default:
+      return 'You must provide a valid operator';
   }
 }
 
-// printNames(['Bob', 'Jimmy', 'Julie']);
+// Call your function 4 times with different numbers and operators to confirm that it is working correctly
+const sum = calculate(10, 20, '+');
+console.log(sum);
 
-// printNames(['Jake', 'Frank', 'Katie']);
+// calculate(7, 89, '-');
+// calculate(25, 50, '*');
+// calculate(9, 3, '/');
+// calculate(9, 3, '&&&&&');
+// return is the function's answer
+// function add(num1, num2) {
+//   return 'another';
+// }
 
-// const someName = 'JD';
-// const h1 = document.querySelector('h1');
+// const answer = add();
 
-// h1.innerText = someName;
+// console.log(answer);
+// add(5, 10);
 
+// console.log('something after our function call');
+
+
+// if (operator === '+') {
+//   console.log(num1 + num2);
+// } else if (operator === '-') {
+//   console.log(num1 - num2);
+// } else if (operator === '*') {
+//   console.log(num1 * num2);
+// } else if (operator === '/') {
+//   console.log(num1 / num2);
+// } else {
+//   console.log('You must provide a valid operator')
+// }
