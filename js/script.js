@@ -1,43 +1,54 @@
-const str = 'some string';
-const num = 10;
-const bool = true;
-const arr = ['John', 'Bob', 'Steve'];
+const gatherBtn = document.querySelector('#gather-btn');
 
-const data = {
-  name: 'JD',
-  age: 44,
-  info: {
-    location: 'Atl',
-    hobbies: [
-      {
-        name: 'Fishing',
-        frequency: 1
-      },
-      {
-        name: 'Pickleball',
-        frequency: 2
-      },
-      {
-        name: 'Another',
-        frequency: 3
-      }
-    ]
+// When the page loads, show a button that the user clicks
+// When the button is clicked, show a prompt for first name, last name and age
+// Store the 3 values to an object
+// Print the data object values to the browser window
+function gatherInfo() {
+  const users = [];
+
+  let firstName, lastName, age;
+  let addUser = true;
+
+  while (addUser) {
+
+    if (!firstName || firstName.length < 2) {
+      firstName = prompt('Please enter your first name');
+      continue;
+    }
+
+    if (!lastName) {
+      lastName = prompt('Please enter your last name');
+      continue;
+    }
+
+    if (!age || isNaN(age)) {
+      age = +prompt('Please enter your age');
+      continue;
+    }
+
+    const user = {
+      firstName: firstName,
+      lastName: lastName,
+      age: age
+    };
+
+    users.push(user);
+
+    firstName = '';
+    lastName = '';
+    age = 0;
+
+    addUser = confirm('Would you like to add another user?');
   }
-};
 
-console.log(data.info.hobbies[1].frequency)
+  return users;
+}
 
+const info = gatherInfo();
 
-// const filtered = data.info.hobbies.filter(function (obj) {
-//   if (obj.frequency > 1) {
-//     return true;
-//   }
-// })
+console.log(info);
 
-// console.log(filtered);
+gatherBtn.addEventListener('click', gatherInfo);
 
-
-// data.name = 'Bob';
-// data.age++;
-
-// console.log(data.name);
+// console.log(isNaN('asdldfkj'))
