@@ -34,8 +34,8 @@ function printNames(names) {
 
 // printNames(['Jake', 'Frank', 'Katie']);
 
-const someName = 'JD';
-const h1 = document.querySelector('h1');
+// const someName = 'JD';
+// const h1 = document.querySelector('h1');
 
-h1.innerText = someName;
+// h1.innerText = someName;
 
