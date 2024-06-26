@@ -7,6 +7,10 @@
   color: #444;
 }
 
+html, body {
+  height: 100%;
+}
+
 img {
   max-width: 100%;
 }
@@ -40,6 +44,8 @@ button {
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   border: 1px solid #555;
   padding: 45px 0;
   background: #444;
@@ -49,6 +55,13 @@ button {
 .modal p {
   color: #fff;
   font-size: 1.3rem;
+}
+
+.modal button {
+  padding: 8px 15px;
+  margin-top: 15px;
+  background: #de4d54;
+  color: #fff;
 }
 
 .outer {
