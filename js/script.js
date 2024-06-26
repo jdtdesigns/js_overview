@@ -18,6 +18,12 @@ function createNote(eventObj) {
   const noteInput = document.querySelector('#note-input');
   // Get the value(what they typed into the box)
   const noteText = noteInput.value;
+
+  if (!noteText) {
+    alert('You must type some text for the note');
+    return;
+  }
+
   // Create a date value object
   const dateObj = new Date(); // {}
   // Get the month from the date object
@@ -84,10 +90,15 @@ noteForm.addEventListener('submit', createNote);
 
 
 
+// function someFunc() {
+//   const firstName = 'JD';
 
+//   return firstName;
+// }
 
+// const name = someFunc();
 
-
+// console.log(name);
 
 
 
