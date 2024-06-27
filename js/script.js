@@ -1,31 +1,41 @@
-let count = 5;
-const h1 = document.querySelector('h1');
-const modal = document.querySelector('.modal');
-const closeBtn = document.querySelector('#close-modal');
+const ul = document.querySelector('ul');
+const output = document.querySelector('#output');
+const addBtn = document.querySelector('#add');
 
-function endGame() {
-  modal.classList.remove('hide');
-}
+function doSomething(eventObj) {
+  const el = eventObj.target;
 
-const interval = setInterval(function () {
-  count--;
+  if (el.tagName === 'LI') {
+    output.innerText = el.innerText;
+    // lis.forEach(function (li) {
+    //   li.style.background = '#555';
+    // });
 
-  h1.textContent = 'Count: ' + count;
-
-  if (!count) {
-    clearInterval(interval);
-    endGame();
+    eventObj.target.style.background = 'red';
   }
-}, 1 * 1000);
-
-function closeModal() {
-  modal.classList.add('hide');
 }
 
-document.body.addEventListener('click', closeModal);
+function addListItem() {
+  const li = document.createElement('li'); // <li></li>
 
-modal.addEventListener('click', function (eventObj) {
-  eventObj.stopPropagation();
-});
+  li.innerText = 'New Item';
 
-closeBtn.addEventListener('click', closeModal);
+  ul.append(li);
+}
+
+ul.addEventListener('click', doSomething);
+addBtn.addEventListener('click', addListItem);
+
+// const fruits = ['orange', 'apple', 'grape'];
+
+// fruits.forEach(function (li, index) {
+//   console.log(li, index);
+// })
+
+// const data = {
+//   name: 'JD',
+//   age: 44,
+//   info: {
+//     address: '555 coding st'
+//   }
+// }

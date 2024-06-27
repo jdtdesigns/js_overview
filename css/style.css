@@ -35,43 +35,9 @@ button {
 }
 
 /* CUSTOM STYLES */
-.modal {
-  position: absolute;
-  top: 45vh;
-  left: 0;
-  right: 0;
-  width: 400px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #555;
-  padding: 45px 0;
-  background: #444;
-  border-radius: 10px;
-}
-
-.modal p {
+ul li {
+  background: #555;
+  padding: 7px 10px;
+  margin: 5px 0;
   color: #fff;
-  font-size: 1.3rem;
-}
-
-.modal button {
-  padding: 8px 15px;
-  margin-top: 15px;
-  background: #de4d54;
-  color: #fff;
-}
-
-.outer {
-  width: 100px;
-  height: 100px;
-  background: blue;
-}
-
-.inner {
-  width: 40px;
-  height: 40px;
-  background: orange;
 }
