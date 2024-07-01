@@ -7,6 +7,10 @@
   color: #444;
 }
 
+body {
+  padding: 5%;
+}
+
 html, body {
   height: 100%;
 }
@@ -23,9 +27,20 @@ a {
 button {
   border: none;
   cursor: pointer;
+  background: #169cff;
+  color: #fff;
+  padding: 7px 15px;
+}
+
+input {
+  padding: 7px 10px;
 }
 
 /* GLOBAL/REUSABLE CLASSES */
 .text-center {
   text-align: center;
+}
+
+.output {
+  margin-top: 35px;
 }
