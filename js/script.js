@@ -1,20 +1,41 @@
-const $saveBtn = $('#save-note');
 
-function createNote() {
-  const $titleInput = $('#title-input');
-  const $textInput = $('#text-input');
-  const $dateInput = $('#date-input');
-  const dateStr = $dateInput.val();
-  const currentTime = dayjs();
+const apiKey = '3acc16ffae9e45df92a064e41646355f';
 
-  const dateTime = dayjs(dateStr)
-    .hour(currentTime.hour())
-    .minute(currentTime.minute())
-    .second(currentTime.second());
+const url = `https://api.openweathermap.org/data/2.5/weather?q=atlanta&appid=${apiKey}&units=imperial`;
 
-  console.log($titleInput.val())
-  console.log(dateTime.format('ddd MMM, DD YYYY hh:mm:ss a'))
-}
 
-$saveBtn.on('click', createNote);
-$('#date-input').datepicker();
+// We make a fetch(server-side) request to openweathermap for current weather data
+// The url must match the server's criteria for a request
+fetch(url)
+  // The first then callback function will be put to the side until the server responds back
+  .then(function (responseObj) {
+    // Passing the parsed json promise object to the next then
+    return responseObj.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    const html = `
+    <h2>Temp: ${data.main.temp}</h2>
+    `;
+    const outputDiv = document.querySelector('.output');
+
+    outputDiv.innerHTML = html;
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+
+
+
+// fetch(url)
+//   .then(function (responseObj) {
+//     const dataPromise = responseObj.json();
+
+//     dataPromise.then(function (data) {
+//       console.log(data);
+//     });
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });

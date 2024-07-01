@@ -1,11 +1,31 @@
-/* .bg-special {
-  background: #46ce8f !important;
+/* RESETS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color: #444;
 }
 
-.bg-special:hover {
-  background: #2f8c69 !important;
-} */
+html, body {
+  height: 100%;
+}
 
-.show {
-  display: initial;
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+/* GLOBAL/REUSABLE CLASSES */
+.text-center {
+  text-align: center;
 }
