@@ -1,24 +1,20 @@
-const charSelect = document.querySelector('#char-select');
-const searchBtn = document.querySelector('#search-btn');
+const $charSelect = $('#char-select');
+const $searchBtn = $('#search-btn');
 
 function getCharacters() {
   const baseUrl = 'https://swapi.dev/api';
-  const option = charSelect.value;
+  const option = $charSelect.val();
   const url = `${baseUrl}/${option}`; // https://swapi.dev/api/people
 
-  fetch(url)
-    .then(function (resObj) {
-      // Pass the parsed json promise object to the next .then in the chain
-      return resObj.json();
-    })
+  $.get(url)
     // Once the json has been parsed, the callback function below will be called and it will be passed the data from the server
-    .then(function (parsedJSONData) {
-      const outputDiv = document.querySelector('.output');
+    .then(function (data) {
+      const $outputDiv = $('.output');
 
-      outputDiv.innerHTML = '';
+      $outputDiv.empty();
 
-      parsedJSONData.results.forEach(function (char) {
-        outputDiv.insertAdjacentHTML('beforeend', `
+      data.results.forEach(function (char) {
+        $outputDiv.append(`
           <div>
             <h3>${char.name}</h3>
             <p>Birth Year: ${char.birth_year}</p>
@@ -26,13 +22,10 @@ function getCharacters() {
         `);
       })
     })
-    .then(function () {
-      console.log('finished');
-    })
 }
 
 function init() {
-  searchBtn.addEventListener('click', getCharacters);
+  $searchBtn.on('click', getCharacters);
 }
 
 init();
