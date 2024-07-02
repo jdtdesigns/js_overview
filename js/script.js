@@ -1,26 +1,38 @@
-const weatherBtn = document.querySelector('#weather-btn');
+const charSelect = document.querySelector('#char-select');
+const searchBtn = document.querySelector('#search-btn');
 
-function outputWeather() {
-  const cityInput = document.querySelector('#city-input');
-  const apiKey = '3acc16ffae9e45df92a064e41646355f';
-
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=imperial`;
+function getCharacters() {
+  const baseUrl = 'https://swapi.dev/api';
+  const option = charSelect.value;
+  const url = `${baseUrl}/${option}`; // https://swapi.dev/api/people
 
   fetch(url)
-    .then(function (responseObj) {
-      return responseObj.json();
+    .then(function (resObj) {
+      // Pass the parsed json promise object to the next .then in the chain
+      return resObj.json();
     })
-    .then(function (data) {
-      const html = `
-    <h2>Temp: ${data.main.temp}</h2>
-    `;
+    // Once the json has been parsed, the callback function below will be called and it will be passed the data from the server
+    .then(function (parsedJSONData) {
       const outputDiv = document.querySelector('.output');
 
-      outputDiv.innerHTML = html;
+      outputDiv.innerHTML = '';
+
+      parsedJSONData.results.forEach(function (char) {
+        outputDiv.insertAdjacentHTML('beforeend', `
+          <div>
+            <h3>${char.name}</h3>
+            <p>Birth Year: ${char.birth_year}</p>
+          </div>
+        `);
+      })
     })
-    .catch(function (error) {
-      console.log(error);
-    });
+    .then(function () {
+      console.log('finished');
+    })
 }
 
-weatherBtn.addEventListener('click', outputWeather);
+function init() {
+  searchBtn.addEventListener('click', getCharacters);
+}
+
+init();

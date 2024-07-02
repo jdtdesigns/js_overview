@@ -44,3 +44,9 @@ input {
 .output {
   margin-top: 35px;
 }
+
+.output div {
+  padding: 15px;
+  border: 1px solid #333;
+  margin-bottom: 5px;
+}
